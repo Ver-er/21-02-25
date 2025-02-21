@@ -1,0 +1,91 @@
+@import '@fontsource/poppins';
+@import '@fontsource/inter';
+@import 'bootstrap/dist/css/bootstrap.min.css';
+
+:root {
+  --primary-color: #FF6B6B;
+  --secondary-color: #4ECDC4;
+  --background-color: #F7F7F7;
+  --text-color: #2D3436;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  background-color: var(--background-color);
+  color: var(--text-color);
+  margin: 0;
+  padding: 0;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Poppins', sans-serif;
+}
+
+.transition-all {
+  transition: all 300ms ease-in-out;
+}
+
+/* Card hover effects */
+.transform-scale-105 {
+  transform: scale(1.05);
+}
+
+/* Loading animation */
+.placeholder-glow .placeholder {
+  animation: placeholder-wave 2s linear infinite;
+}
+
+/* Accessibility focus styles */
+:focus-visible {
+  outline: 3px solid var(--primary-color);
+  outline-offset: 2px;
+}
+
+/* Dark mode styles */
+[data-theme="dark"] {
+  --background-color: #1a1a1a;
+  --text-color: #000000;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--background-color);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--primary-color);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--secondary-color);
+}
+
+/* Card animations */
+.card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1) !important;
+}
+
+/* Button hover effects */
+.btn {
+  transition: all 0.3s ease;
+}
+
+.btn:hover {
+  transform: translateY(-1px);
+}
+
+/* Badge styles */
+.badge {
+  font-weight: 500;
+  letter-spacing: 0.5px;
+}
