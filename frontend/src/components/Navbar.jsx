@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { Navbar as BootstrapNavbar, Container, Form, Button } from 'react-bootstrap';
-import { Sun, Moon, Search, ChefHat } from 'lucide-react';
+import { Search, ChefHat } from 'lucide-react';
 
-function Navbar({ isDarkMode, toggleDarkMode }) {
+function Navbar() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [userName, setUserName] = useState('');
   const navigate = useNavigate();
@@ -16,7 +16,6 @@ function Navbar({ isDarkMode, toggleDarkMode }) {
     }
   }, []);
 
-  // Added event listener to update login state on userLogin event
   useEffect(() => {
     const handleUserLogin = () => {
       const storedData = JSON.parse(localStorage.getItem('userData'));
@@ -40,8 +39,8 @@ function Navbar({ isDarkMode, toggleDarkMode }) {
   return (
     <BootstrapNavbar 
       fixed="top" 
-      bg={isDarkMode ? 'dark' : 'light'} 
-      variant={isDarkMode ? 'dark' : 'light'}
+      bg="light" 
+      variant="light"
       className="shadow-sm"
     >
       <Container>
@@ -66,14 +65,7 @@ function Navbar({ isDarkMode, toggleDarkMode }) {
         </Form>
 
         <div className="d-flex align-items-center">
-          <Button
-            variant="link"
-            onClick={toggleDarkMode}
-            className="me-3"
-            aria-label={isDarkMode ? 'Switch to light mode' : 'Switch to dark mode'}
-          >
-            {isDarkMode ? <Sun size={20} /> : <Moon size={20} />}
-          </Button>
+          <Link to="/about" className="btn btn-link me-3 text-decoration-none">About</Link>
           {isLoggedIn ? (
             <>
               <Link to="/create-recipe" className="btn btn-outline-primary me-2">Create Recipe</Link>

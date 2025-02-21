@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { Toaster } from 'react-hot-toast';
 import Navbar from './components/Navbar';
@@ -8,19 +8,13 @@ import Login from './pages/Login';
 import Register from './pages/Register';
 import CreateRecipe from './pages/CreateRecipe';
 import EditRecipe from './pages/EditRecipe';
+import About from './pages/About';
 
 function App() {
-  const [isDarkMode, setIsDarkMode] = useState(false);
-
-  const toggleDarkMode = () => {
-    setIsDarkMode(!isDarkMode);
-    document.documentElement.setAttribute('data-theme', isDarkMode ? 'light' : 'dark');
-  };
-
   return (
     <Router>
-      <div className={`app ${isDarkMode ? 'dark' : ''}`}>
-        <Navbar isDarkMode={isDarkMode} toggleDarkMode={toggleDarkMode} />
+      <div className="app">
+        <Navbar />
         <Routes>
           <Route path="/" element={<LandingPage />} />
           <Route path="/dashboard" element={<Dashboard />} />
@@ -28,6 +22,7 @@ function App() {
           <Route path="/register" element={<Register />} />
           <Route path="/create-recipe" element={<CreateRecipe />} />
           <Route path="/edit-recipe/:id" element={<EditRecipe />} />
+          <Route path="/about" element={<About />} />
         </Routes>
         <Toaster position="top-right" />
       </div>
